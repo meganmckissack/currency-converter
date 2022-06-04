@@ -7,14 +7,22 @@
 
 <body>
   <div class="container">
-    <h1>Check the current exchange rate</h1>
+    <h1>Convert your currency!</h1>
+    <p>Use this currency conversion calculator to get the current international exchange amount for your currency</p>
     <form id="currencySelector">
+      <div class="form-group">
+        <label for="currencyInput">US Dollar amount</label>
+        <input id="currencyInput" class="form-control" type="number">
+      </div>
+      <label for="currenyExhangeType">Currency to exchange</label>
       <select class="form-control" id="currency">
         <option value="EUR">Euro</option>
         <option value="GNF">Guinean franc</option>
       </select>
       <button type="submit" class="btn" id="currencyInput">Convert</button>
     </form>
+    <div id="exhangeRate"></div>
+    <div id="conversionAmount"></div>
   </div>
 </body>
 
