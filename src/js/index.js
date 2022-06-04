@@ -5,5 +5,10 @@ import './../css/styles.css';
 
 
 $(document).ready(function() {
+  $('#currencySelector').submit(function() {
+    event.preventDefault();
+    const currencyCode = $('#currency').val();
+    console.log(currencyCode);
+  });
   
 });
