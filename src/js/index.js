@@ -4,25 +4,30 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './../css/styles.css';
 import { CurrencyService } from './currency-service.js';
 
-async function conversionCall(currencyCode) {
-  const response = await CurrencyService.convertCurrency(currencyCode);
-  getData(response);
-  console.log(response);
-}
+(function() {
+  let currencyInputAmount;
 
-function getData(response) {
-  if(response.result !== "success") {
-    console.log(response["error-type"]);
-  } else {
-    console.log(response["conversion_rate"]);
+  async function conversionCall(currencyCode) {
+    const response = await CurrencyService.convertCurrency(currencyCode);
+    getData(response);
   }
-}
 
-$(document).ready(function() {
-  $('#currencySelector').submit(function() {
-    event.preventDefault();
-    const currencyCode = $('#currency').val();
-    conversionCall(currencyCode);
+  function getData(response) {
+    if(response.result !== "success") {
+      console.log(response["error-type"]);
+    } else {
+      let exchangerateVal = response['conversion_rate'];
+      $('#exhangeRate').html(parseFloat(exchangerateVal));
+      $('#conversionAmount').html(exchangerateVal * currencyInputAmount);
+    }
+  }
+
+  $(document).ready(function() {
+    $('#currencySelector').submit(function() {
+      event.preventDefault();
+      const currencyCode = $('#currency').val();
+      currencyInputAmount = parseInt($('#currencyInput').val());
+      conversionCall(currencyCode);
+    });
   });
-  
-});
+}) ();
