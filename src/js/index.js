@@ -14,7 +14,7 @@ import { CurrencyService } from './currency-service.js';
 
   function getData(response) {
     if(response.result !== "success") {
-      console.log(response["error-type"]);
+      $('#errorMessage').html(`Please check your submission, your result retruned an error due to ${response["error-type"]}`);
     } else {
       let exchangerateVal = response['conversion_rate'];
       $('#exhangeRate').html(parseFloat(exchangerateVal));
