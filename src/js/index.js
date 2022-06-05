@@ -7,6 +7,11 @@ import { CurrencyService } from './currency-service.js';
 (function() {
   let currencyInputAmount;
 
+  function clearFields() {
+    $('#errorMessage').html("");
+    $('#currencyInput').val("");
+  }
+  
   async function conversionCall(currencyCode) {
     const response = await CurrencyService.convertCurrency(currencyCode);
     getData(response);
@@ -26,7 +31,8 @@ import { CurrencyService } from './currency-service.js';
     $('#currencySelector').submit(function() {
       event.preventDefault();
       const currencyCode = $('#currency').val();
-      currencyInputAmount = parseInt($('#currencyInput').val());
+      currencyInputAmount = parseFloat($('#currencyInput').val());
+      clearFields();
       conversionCall(currencyCode);
     });
   });
