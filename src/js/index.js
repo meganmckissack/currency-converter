@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './../css/styles.css';
 import { CurrencyService } from './currency-service.js';
 
+
 (function() {
   let currencyInputAmount;
 
@@ -22,7 +23,7 @@ import { CurrencyService } from './currency-service.js';
       $('#errorMessage').html(`Please check your submission, your result retruned an error due to ${response["error-type"]}.`);
     } else {
       let exchangerateVal = parseFloat(response['conversion_rate']);
-      $('#exhangeRate').html(`The current exchange rate for USD to ${response['target_code']} is ${exchangerateVal}.`);
+      $('#exchangeRate').html(`The current exchange rate for USD to ${response['target_code']} is ${exchangerateVal}.`);
       $('#conversionAmount').html(`${currencyInputAmount} US Dollars is equal to ${exchangerateVal * currencyInputAmount} ${response['target_code']}.`);
     }
   }
