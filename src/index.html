@@ -7,24 +7,33 @@
 
 <body>
   <div class="container">
-    <h1>Convert your currency!</h1>
-    <p>Use this currency conversion calculator to get the current international exchange amount for your currency</p>
-    <form id="currencySelector">
-      <div class="form-group">
-        <label for="currencyInput">US Dollar amount</label>
-        <input id="currencyInput" class="form-control" type="number" step="0.01">
+    <div class="contentContainer">
+      <header>
+        <h1>Convert your currency!</h1>
+        <p>Use this currency conversion calculator to get the current international exchange amount for your currency
+        </p>
+      </header>
+      <form id="currencySelector">
+        <div class="form-group">
+          <label for="currencyInput">US Dollar amount</label>
+          <input id="currencyInput" class="form-control" type="number" step="0.01">
+        </div>
+        <div class="form-group">
+          <label for="currenyExhangeType">Currency to exchange</label>
+          <select class="form-control" id="currency">
+            <option value="EUR">Euro</option>
+            <option value="GNF">Guinean franc</option>
+          </select>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-light" id="currencyInput">Convert</button>
+        </div>
+      </form>
+      <div class="results">
+        <div id="exchangeRate"></div>
+        <div id="conversionAmount"></div>
+        <div id="errorMessage"></div>
       </div>
-      <label for="currenyExhangeType">Currency to exchange</label>
-      <select class="form-control" id="currency">
-        <option value="EUR">Euro</option>
-        <option value="GNF">Guinean franc</option>
-      </select>
-      <button type="submit" class="btn" id="currencyInput">Convert</button>
-    </form>
-    <div class="results">
-      <div id="exchangeRate"></div>
-      <div id="conversionAmount"></div>
-      <div id="errorMessage"></div>
     </div>
   </div>
 </body>
